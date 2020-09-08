@@ -1,0 +1,96 @@
+
+
+<div id="operators_block">
+	
+	<div class="row">
+		<div class="col"><h3>Operators list</h3></div>
+		<div class="col-1"><button class="btn btn-primary" id="operator_add">Add</button></div>
+	</div>
+	
+	<table class="table table-hover">
+	  <thead>
+		<tr>
+		  <th scope="col">ID</th>
+		  <th scope="col">Name</th>
+		  <th scope="col">Code</th>
+		  <th scope="col">Action</th>
+		</tr>
+	  </thead>
+	  <tbody id="operators_list">
+		{% for operator in operators_list %}
+		<tr data-id="{{ operator.id }}">
+		  <td>{{ operator.id }}</td>
+		  <td>{{ operator.name }}</td>
+		  <td>{{ operator.code }}</td>
+		  <td>
+			<div class="btn-group">
+				<button class="btn btn-secondary btn-sm edit_operator">Edit</button>
+				<button class="btn btn-secondary btn-sm del_operator">Delete</button>
+			</div>
+		  </td>
+		</tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+	
+	<table id="operator_item" style="display: none;">
+		<tr data-id="0">
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td>
+			<div class="btn-group">
+				<button class="btn btn-secondary btn-sm edit_operator">Edit</button>
+				<button class="btn btn-secondary btn-sm del_operator">Delete</button>
+			</div>
+		  </td>
+		</tr>
+	</table>
+</div>
+
+<div class="modal fade" tabindex="-1" id="operator_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<table class="table table-hover">
+			  <tbody>
+				<tr>
+				  <th class="modal_table_title">Name:</th>
+				  <td><input type="input" class="form-control" name="operator_name" autocomplete="false"></td>
+				</tr>
+				<tr>
+				  <th>Code:</th>
+				  <td><input type="input" class="form-control" name="operator_code" autocomplete="false"></td>
+				</tr>
+			  </tbody>
+			</table>
+			<div id="error_list">
+				
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="operator_modal_submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row error" style="display: none;">
+	<div class="col-12">
+		<div class="alert alert-danger" role="alert">
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+

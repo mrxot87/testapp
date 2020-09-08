@@ -1,0 +1,15 @@
+body {
+  padding-top: 5rem;
+}
+
+.welcome {
+	text-align: center;
+}
+
+.search_table_title {
+	width: 15%;
+}
+
+.modal_table_title {
+	width: 15%;
+}

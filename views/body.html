@@ -1,0 +1,13 @@
+{% include "header.html" %}
+{% include "menu.html" %}
+
+<div class="container">
+{% if menu %}
+{% include menu + ".html" %}
+{% else %}
+<div class="welcome">Welcome back commander!</div>
+{% endif %}
+</div>
+
+
+{% include "footer.html" %}

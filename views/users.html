@@ -1,0 +1,107 @@
+
+<div id="users_block">
+	
+	<div class="row">
+		<div class="col"><h3>Users list</h3></div>
+		<div class="col-1"><button class="btn btn-primary" id="user_add">Add</button></div>
+	</div>
+	
+	<table class="table table-hover">
+	  <thead>
+		<tr>
+		  <th scope="col">ID</th>
+		  <th scope="col">Name</th>
+		  <th scope="col">Phone</th>
+		  <th scope="col">Operator</th>
+		  <th scope="col">Action</th>
+		</tr>
+	  </thead>
+	  <tbody id="users_list">
+		{% for user in users_list %}
+		<tr data-id="{{ user.id }}">
+		  <td>{{ user.id }}</td>
+		  <td>{{ user.name }}</td>
+		  <td>{{ user.phone }}</td>
+		  <td data-operator="{{ user.operator_id }}">{{ user.operator_name }}</td>
+		  <td>
+			<div class="btn-group">
+				<button class="btn btn-secondary btn-sm edit_user">Edit</button>
+				<button class="btn btn-secondary btn-sm del_user">Delete</button>
+			</div>
+		  </td>
+		</tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+	
+	<table id="user_item" style="display: none;">
+		<tr data-id="0">
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td data-operator="0"></td>
+		  <td>
+			<div class="btn-group">
+				<button class="btn btn-secondary btn-sm edit_user">Edit</button>
+				<button class="btn btn-secondary btn-sm del_user">Delete</button>
+			</div>
+		  </td>
+		</tr>
+	</table>
+</div>
+
+<div class="modal fade" tabindex="-1" id="user_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<table class="table table-hover">
+			  <tbody>
+				<tr>
+				  <th class="modal_table_title">Name:</th>
+				  <td><input type="input" class="form-control" name="user_name" autocomplete="false"></td>
+				</tr>
+				<tr>
+				  <th>Operator:</th>
+				  <td><select autocomplete="false" class="form-control" name="operator">
+						  {% for operator in operators_list %}
+						  <option value="{{ operator.id }}">{{ operator.name }}</option>
+						  {% endfor %}
+					</select>
+				  </td>
+				</tr>
+				<tr>
+				  <th>Phone:</th>
+				  <td><input type="input" class="form-control" name="user_phone" autocomplete="false"></td>
+				</tr>
+			  </tbody>
+			</table>
+			<div id="error_list">
+				
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="user_modal_submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row error" style="display: none;">
+	<div class="col-12">
+		<div class="alert alert-danger" role="alert">
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
